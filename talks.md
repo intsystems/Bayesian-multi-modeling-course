@@ -22,3 +22,7 @@
 # Variational inference 2
 * [The equivalence between Stein variational gradient descent and black-box variational inference](https://arxiv.org/pdf/2004.01822) [reporter: Ilgam Latypov]
 * [Pathwise Derivatives Beyond the Reparameterization Trick](http://proceedings.mlr.press/v80/jankowiak18a/jankowiak18a.pdf) [reporter: Alexander Terentyev]
+
+# Diffusion
+* [A diffusion theory for deep learning dynamics: Stochastic gradient descent exponentially favors flat minima](https://arxiv.org/pdf/2002.03495) [reporter: your name]
+* [Infinitely deep bayesian neural networks with stochastic differential equations](https://proceedings.mlr.press/v151/xu22a/xu22a.pdf) [reporter: your name]
