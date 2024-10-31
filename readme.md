@@ -23,7 +23,7 @@
 | 8.10 | [Complexity](slides/slides_3_complexity.pdf)  | 
 | 15.10 | [Var inference](slides/slides_4_var1.pdf)  | 
 | 22.10 | [Var inference 2](slides/slides_5_var2.pdf)   | 
-| 31.10 | [Diffusion models, score matching](slides/slides_6_diffusion.pdf)   | 
+| 31.10 | [Diffusion models, score matching](slides/slides_6_dif.pdf)   | 
 | 5.11 | Technical meeting 2 | 
 | 12.11 | Generative and discriminative models  | 
 | 19.11 | Technical meeting 3   | 
