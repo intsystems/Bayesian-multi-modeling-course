@@ -1,5 +1,5 @@
 # Bayesian multimodeling
-[Form 6](https://docs.google.com/forms/d/e/1FAIpQLSfGE1t9iydusuyqnpUicjJvgGI3f_LJtV7DiIK4jdXLu-T5yA/viewform?usp=sf_link)
+[Form 7](https://docs.google.com/forms/d/e/1FAIpQLSfLXmZp-sfO5o7f704_J5HO0f0SeHlOVzHelxcH94naoCfj7A/viewform?usp=sf_link)
 
 [Projects](projects.md) and [project schedule](project_schedule.md)
 
@@ -23,7 +23,7 @@
 | 8.10 | [Complexity](slides/slides_3_complexity.pdf)  | 
 | 15.10 | [Var inference](slides/slides_4_var1.pdf)  | 
 | 22.10 | [Var inference 2](slides/slides_5_var2.pdf)   | 
-| 31.10 | Diffusion models, score matching   | 
+| 31.10 | [Diffusion models, score matching](slides/slides_6_diffusion.pdf)   | 
 | 5.11 | Technical meeting 2 | 
 | 12.11 | Generative and discriminative models  | 
 | 19.11 | Technical meeting 3   | 
