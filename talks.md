@@ -7,7 +7,7 @@
 * [Hyperparameters: optimize, or integrate out?](https://bayes.wustl.edu/MacKay/alpha.pdf) [reporter: "Semkin Kirill"]
 * [Bayesian Inference under Small Sample Sizes Using General Noninformative Priors ](https://www.mdpi.com/2227-7390/9/21/2810) [reporter: "Dorin Daniil"]
 
-# Technical meeting
+# Technical meeting 1
   * [Bayesian Deep Learning via Subnetwork Inference](http://proceedings.mlr.press/v139/daxberger21a/daxberger21a.pdf) [reporter: "Nikitina Maria"]
   * [On the Dirichlet prior and Bayesian regularization](https://proceedings.neurips.cc/paper_files/paper/2002/file/1819932ff5cf474f4f19e7c7024640c2-Paper.pdf) [reporter: "Babkin Petr"]
 
@@ -25,4 +25,8 @@
 
 # Diffusion
 * [A diffusion theory for deep learning dynamics: Stochastic gradient descent exponentially favors flat minima](https://arxiv.org/pdf/2002.03495) [reporter: "Veprikov Andrey"]
-* [Infinitely deep bayesian neural networks with stochastic differential equations](https://proceedings.mlr.press/v151/xu22a/xu22a.pdf) [reporter: your name]
+* ~~[Infinitely deep bayesian neural networks with stochastic differential equations](https://proceedings.mlr.press/v151/xu22a/xu22a.pdf) [reporter: your name]~~
+
+# Technical meeting 2
+  * [Fast exact multiplication by the Hessian](https://direct.mit.edu/neco/article-pdf/6/1/147/812672/neco.1994.6.1.147.pdf) [reporter: "your name"]
+  * [Some large-scale matrix computation problem](https://www.sciencedirect.com/science/article/pii/0377042796000180) [reporter: "your name"]
