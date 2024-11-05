@@ -29,4 +29,4 @@
 
 # Technical meeting 2
   * [Fast exact multiplication by the Hessian](https://direct.mit.edu/neco/article-pdf/6/1/147/812672/neco.1994.6.1.147.pdf) [reporter: "your name"]
-  * [Some large-scale matrix computation problem](https://www.sciencedirect.com/science/article/pii/0377042796000180) [reporter: "your name"]
+  * [Some large-scale matrix computation problem](https://www.sciencedirect.com/science/article/pii/0377042796000180) [Dmitry Bylinkin]
