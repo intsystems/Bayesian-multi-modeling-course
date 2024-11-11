@@ -30,3 +30,7 @@
 # Technical meeting 2
   * [Fast exact multiplication by the Hessian](https://direct.mit.edu/neco/article-pdf/6/1/147/812672/neco.1994.6.1.147.pdf) [Yuri Sapronov]
   * [Some large-scale matrix computation problem](https://www.sciencedirect.com/science/article/pii/0377042796000180) [Dmitry Bylinkin]
+
+# Generative vs. discriminative
+* [Your diffusion model is secretly a zero-shot classifier](https://openaccess.thecvf.com/content/ICCV2023/papers/Li_Your_Diffusion_Model_is_Secretly_a_Zero-Shot_Classifier_ICCV_2023_paper.pdf) [reporter: your name]
+* [Combining deep generative and discriminative models for Bayesian semi-supervised learning](https://www.sciencedirect.com/science/article/pii/S003132031930456X) [reporter: your name]
