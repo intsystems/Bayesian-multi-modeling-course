@@ -33,4 +33,4 @@
 
 # Generative vs. discriminative
 * [Your diffusion model is secretly a zero-shot classifier](https://openaccess.thecvf.com/content/ICCV2023/papers/Li_Your_Diffusion_Model_is_Secretly_a_Zero-Shot_Classifier_ICCV_2023_paper.pdf) [reporter: Dmitry Bylinkin]
-* [Combining deep generative and discriminative models for Bayesian semi-supervised learning](https://www.sciencedirect.com/science/article/pii/S003132031930456X) [reporter: your name]
+* [Combining deep generative and discriminative models for Bayesian semi-supervised learning](https://www.sciencedirect.com/science/article/pii/S003132031930456X) [reporter: Aleksandr Shestakov]
