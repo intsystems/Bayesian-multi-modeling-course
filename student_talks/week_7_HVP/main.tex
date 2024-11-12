@@ -1,0 +1,416 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Fast Exact Multiplication by the Hessian}
+\author{Reporter: Yuri Sapronov}
+\date{}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item Extracting second-order information (Hessian matrix) from large neural networks is critical for:
+        \begin{itemize}
+            \item Analyzing convergence (Widrow et al., 1979; Le Cun et al., 1991).
+            \item Enhancing generalization (MacKay, 1991; Hassibi and Stork, 1993).
+            \item Full second-order optimization (Watrous, 1987).
+        \end{itemize}
+        \item Full Hessian calculation is impractical for large networks.
+        \item Diagonal or trace approximations of the Hessian are sometimes used.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Objective}
+    \begin{itemize}
+        \item Goal: Efficient technique to calculate \( \mathbf{H}v \) (product of Hessian and vector) without full Hessian computation.
+        \item Application: Estimating Hessian via products with vectors (complexity \( O(n^2) \) reduced to \( O(n) \) in time and space).
+    \end{itemize}
+\end{frame}
+
+\section{Relation Between Gradient and Hessian}
+\begin{frame}{Gradient and Hessian Relation}
+    \begin{itemize}
+        \item The Hessian matrix appears in the expansion of the gradient:
+        \[
+        \nabla_{\mathbf{w}}(w + \Delta w) = \nabla_{\mathbf{w}}(w) + \mathbf{H}\Delta w + O(\|\Delta w\|^2)
+        \]
+        \item Let \( \Delta w = r\mathbf{v} \), where \( r \) is a small scalar.
+        \item Compute \( \mathbf{H}\mathbf{v} \) using:
+        \[
+        \mathbf{H}\mathbf{v} = \frac{\nabla_{\mathbf{w}}(w + r\mathbf{v}) - \nabla_{\mathbf{w}}(w)}{r} + O(r)
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Approximation Algorithm}
+    \begin{itemize}
+        \item This approximation is effective when \( r \) is small enough to minimize numerical issues.
+        \item But small \( r \) may lead to numerical precision problems due to tiny differences in gradients.
+    \end{itemize}
+\end{frame}
+
+\section{\( R\{\cdot\} \) Technique}
+\begin{frame}{The \( R\{\cdot\} \) Technique}
+    \begin{itemize}
+        \item Define the operator:
+        \[
+        R\{\nabla_{\mathbf{w}}(f(\mathbf{w}))\} = \left.\frac{\partial}{\partial r} \nabla_{\mathbf{w}}(w + r\mathbf{v})\right|_{r=0}
+        \]
+        \item This operator transforms gradient computation to Hessian-vector product computation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Properties of \( R\{\cdot\} \)}
+    \begin{itemize}
+        \item Basic rules for \( R\{\cdot\} \):
+        \[
+        R\{cf(\mathbf{w})\} = c R\{f(\mathbf{w})\}, \quad R\{f(\mathbf{w}) + g(\mathbf{w})\} = R\{f(\mathbf{w})\} + R\{g(\mathbf{w})\}
+        \]
+        \item Differential properties:
+        \[
+        R\left\{\frac{df(\mathbf{w})}{dt}\right\} = \frac{dR\{f(\mathbf{w})\}}{dt}
+        \]
+        \item With \( R\{\mathbf{w}\} = \mathbf{v} \).
+    \end{itemize}
+\end{frame}
+
+\section{Simple Backpropagation Networks}
+\begin{frame}{Backpropagation with \( R\{\text{backprop}\} \)}
+    \begin{itemize}
+        \item \( R\{\text{backprop}\} \) is an algorithm to efficiently calculate \( \mathbf{H}\mathbf{v} \) for backpropagation networks.
+        \item This method uses the gradient of the network output with respect to the input.
+        \item The direction of equations is reversed from the gradient backpropagation algorithm.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Indexing Weights}
+    \begin{itemize}
+        \item Let \( w_{ij} \) denote the weight from unit \( i \) to unit \( j \).
+        \item \( v \) has the same dimensionality as \( w \).
+        \item Forward computation (topological order):
+        \[
+        x_i = \sum_j w_{ij} y_j
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Forward Pass}
+    \begin{itemize}
+        \item Total input to unit \( i \):
+        \[
+        y_i = \sigma(x_i) + I_i
+        \]
+        \item Error function \( E = E(y) \), where:
+        \[
+        e_i = \frac{dE}{dy_i}
+        \]
+        \item Common error measures include squared error and cross-entropy.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Backward Pass (Gradient Computation)}
+    \begin{itemize}
+        \item Backward pass equations:
+        \[
+        \frac{\partial E}{\partial y_i} = e_i(y_i) + \sum_j w_{ij} \frac{\partial E}{\partial x_j}
+        \]
+        \[
+        \frac{\partial E}{\partial x_i} = \sigma_i'(x_i) \frac{\partial E}{\partial y_i}
+        \]
+        \[
+        \frac{\partial E}{\partial w_{ij}} = y_j \frac{\partial E}{\partial x_i}
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Applying \( R\{\cdot\} \) to Forward and Backward Passes}
+    \begin{itemize}
+        \item For the forward pass:
+        \[
+        R\{x_i\} = \sum_j \left( w_{ij} R\{y_j\} + v_{ij} y_j \right)
+        \]
+        \[
+        R\{y_i\} = R\{x_i\} \sigma'_i(x_i)
+        \]
+        \item For the backward pass:
+        \[
+        R\left\{ \frac{\partial E}{\partial y_i} \right\} = e_i'(y_i) R\{y_i\} + \sum_j \left( w_{ij} R\left\{ \frac{\partial E}{\partial x_j} \right\} + v_{ij} \frac{\partial E}{\partial x_j} \right)
+        \]
+    \end{itemize}
+\end{frame}
+
+
+\section{Recurrent Backpropagation}
+\begin{frame}{Recurrent Backpropagation Algorithm}
+    \begin{itemize}
+        \item The recurrent backpropagation algorithm (Almeida, 1987; Pineda, 1987) uses forward equations that relax to the gradient.
+        \item It provides a dynamic framework to compute \( \frac{\partial E}{\partial w_{ij}} \) as the system reaches equilibrium.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Forward Equations}
+    \begin{itemize}
+        \item Total input to unit \( i \):
+        \[
+        x_i = \sum_j w_{ij} y_j
+        \]
+        \item Dynamics of \( y_i \):
+        \[
+        \frac{d y_i}{d t} \propto -y_i + \sigma_i(x_i) + I_i
+        \]
+        \item Dynamics of \( z_i \):
+        \[
+        \frac{d z_i}{d t} \propto -z_i + \sigma_i'(x_i) \sum_j (w_{ij} z_j) + e_i(y_i)
+        \]
+        where \( e_i(y_i) = \frac{\partial E}{\partial y_i} \).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Gradient Computation}
+    \begin{itemize}
+        \item Gradient of the error with respect to weight \( w_{ij} \):
+        \[
+        \frac{\partial E}{\partial w_{ij}} = y_i z_j \big|_{t \to \infty}
+        \]
+        \item As \( t \rightarrow \infty \), \( z_j \) stabilizes, allowing the gradient calculation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Adjoint Equations and the \( R\{\cdot\} \) Operator}
+    \begin{itemize}
+        \item Applying the \( R\{\cdot\} \) operator to calculate \( \mathbf{H}\mathbf{v} \):
+        \[
+        R\{x_i\} = \sum_j (w_{ij} R\{y_j\} + v_{ij} y_j)
+        \]
+        \[
+        \frac{d R\{y_i\}}{d t} \propto -R\{y_i\} + \sigma_i'(x_i) R\{x_i\}
+        \]
+        \item Equation for \( \frac{d R\{z_i\}}{d t} \):
+        \[
+        \frac{d R\{z_i\}}{d t} \propto -R\{z_i\} + \sigma_i'(x_i) \sum_j \left( v_{ij} z_j + w_{ij} R\{z_j\} \right) 
+        \]
+        \[
+        \quad + \sigma_i''(x_i) R\{x_i\} \sum_j (w_{ij} z_j) + e_i'(y_i) R\{y_i\}
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Gradient with \( R\{\cdot\} \) Applied}
+    \begin{itemize}
+        \item Gradient with the \( R\{\cdot\} \) operator applied:
+        \[
+        R\left\{ \frac{\partial E}{\partial w_{ij}} \right\} = y_i R\{z_j\} + R\{y_i\} z_j \big|_{t \to \infty}
+        \]
+        \item This process specifies a relaxation approach for computing \( \mathbf{H}\mathbf{v} \), similar to gradient relaxation.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Boltzmann Machines: Setup}
+    \begin{itemize}
+        \item For Boltzmann machines, we aim to compute \( Hv \) by examining the quantity \( p_{ij} = \langle s_i s_j \rangle \).
+        \item Here, \( s_i \) and \( s_j \) represent the states of neurons \( i \) and \( j \), respectively.
+        \item The expected value \( p_{ij} \) can be expressed as:
+        \[
+        p_{ij} = \sum_\alpha P(\alpha) s_i^{(\alpha)} s_j^{(\alpha)},
+        \]
+        where \( P(\alpha) \) is the probability of configuration \( \alpha \).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Step 1: Defining \( p_{ij} \) in Terms of State Probabilities}
+    \begin{itemize}
+        \item Define the probability \( P(\alpha) \) using the Boltzmann distribution:
+        \[
+        P(\alpha) = \frac{1}{Z} e^{-E_\alpha / T},
+        \]
+        where \( Z \) is the partition function, and \( E_\alpha \) is the energy of configuration \( \alpha \):
+        \[
+        E_\alpha = \sum_{i<j} s_i^{(\alpha)} s_j^{(\alpha)} w_{ij}.
+        \]
+        \item The partition function \( Z \) is given by:
+        \[
+        Z = \sum_\alpha e^{-E_\alpha / T}.
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Step 2: Applying \( R \) to \( p_{ij} \)}
+    \begin{itemize}
+        \item To find the rate of change of \( p_{ij} \) along \( v \), apply \( R \):
+        \[
+        R\{p_{ij}\} = R\left(\sum_\alpha P(\alpha) s_i^{(\alpha)} s_j^{(\alpha)}\right).
+        \]
+        \item Expanding, we get:
+        \[
+        R\{p_{ij}\} = \sum_\alpha R\{P(\alpha)\} s_i^{(\alpha)} s_j^{(\alpha)}.
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Step 3: Calculating \( R\{P(\alpha)\} \)}
+    \begin{itemize}
+        \item Use the definition of \( P(\alpha) \):
+        \[
+        R\{P(\alpha)\} = R\left(\frac{1}{Z} e^{-E_\alpha / T}\right).
+        \]
+        \item Applying the product rule of \( R \):
+        \[
+        R\{P(\alpha)\} = \frac{1}{Z} R\left(e^{-E_\alpha / T}\right) + e^{-E_\alpha / T} R\left(\frac{1}{Z}\right).
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Step 3: Part 1 - Calculating \( R\{e^{-E_\alpha / T}\} \)}
+    \begin{itemize}
+        \item Using the chain rule:
+        \[
+        R\left\{ e^{-E_\alpha / T} \right\} = e^{-E_\alpha / T} \cdot \left(-\frac{1}{T} R\{E_\alpha\}\right).
+        \]
+        \item The directional derivative \( R\{E_\alpha\} \) is:
+        \[
+        R\{E_\alpha\} = \sum_{i<j} s_i^{(\alpha)} s_j^{(\alpha)} v_{ij} = D_\alpha.
+        \]
+        \item Therefore,
+        \[
+        R\left\{ e^{-E_\alpha / T} \right\} = -\frac{1}{T} D_\alpha e^{-E_\alpha / T}.
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Step 3: Part 2 - Calculating \( R\left\{\frac{1}{Z}\right\} \)}
+    \begin{itemize}
+        \item Since \( Z = \sum_\alpha e^{-E_\alpha / T} \), we have:
+        \[
+        R\{Z\} = \sum_\alpha R\left\{ e^{-E_\alpha / T} \right\} = -\frac{1}{T} \sum_\alpha D_\alpha e^{-E_\alpha / T}.
+        \]
+        \item Thus,
+        \[
+        R\left\{\frac{1}{Z}\right\} = -\frac{1}{Z^2} R\{Z\} = \frac{\langle D \rangle}{Z T},
+        \]
+        where \( \langle D \rangle = \sum_\alpha P(\alpha) D_\alpha \).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Step 3: Final Expression for \( R\{P(\alpha)\} \)}
+    \begin{itemize}
+        \item Putting it all together:
+        \[
+        R\{P(\alpha)\} = P(\alpha) \left(-\frac{D_\alpha}{T} + \frac{\langle D \rangle}{T}\right).
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Step 4: Substitute \( R\{P(\alpha)\} \) Back into \( R\{p_{ij}\} \)}
+    \begin{itemize}
+        \item Substituting, we get:
+        \[
+        R\{p_{ij}\} = \sum_\alpha P(\alpha) \left(-\frac{D_\alpha}{T} + \frac{\langle D \rangle}{T}\right) s_i^{(\alpha)} s_j^{(\alpha)}.
+        \]
+        \item This simplifies to:
+        \[
+        R\{p_{ij}\} = \frac{1}{T} \left( p_{ij} \langle D \rangle - \langle s_i s_j D \rangle \right).
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Final Formula for \( R\{p_{ij}\} \)}
+    \begin{itemize}
+        \item Thus, we have shown that:
+        \[
+        R\{p_{ij}\} = \frac{1}{T} \left( p_{ij} \langle D \rangle - \langle s_i s_j D \rangle \right).
+        \]
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Weight Perturbation and Gradient Estimation}
+    \begin{itemize}
+        \item Weight perturbation is used to approximate the gradient \(\nabla_w\) by adding a random perturbation vector \(\Delta w\) to the weights.
+        \item We observe the resulting change in error, which is given by:
+        \[
+        E(w + \Delta w) = E(w) + \Delta E = E(w) + \nabla_w \cdot \Delta w
+        \]
+        \item This approach lets us estimate the individual partial derivatives \(\frac{\partial E}{\partial w_i}\).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Derivation of \(\frac{\partial E}{\partial w_i}\) Using Least Squares}
+    \begin{itemize}
+        \item For each weight \(w_i\), we assume the change in error \(\Delta E\) is related to the change \(\Delta w_i\) as:
+        \[
+        \Delta E = \Delta w_i \frac{\partial E}{\partial w_i} + \text{noise}
+        \]
+        \item To solve for \(\frac{\partial E}{\partial w_i}\), we minimize the squared error between \(\Delta E\) and \(\Delta w_i \frac{\partial E}{\partial w_i}\), giving an exact solution:
+        \[
+        \frac{\partial E}{\partial w_i} = \frac{\langle \Delta w_i \Delta E \rangle}{\langle \Delta w_i^2 \rangle}
+        \]
+        \item Here, \(\langle \cdot \rangle\) represents averaging over multiple perturbations. This approximation relies on the central limit theorem to provide a stable mean estimate with enough samples.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Improving the Approximation with Hessian Terms}
+    \begin{itemize}
+        \item A better approximation for the change in error, \(\Delta E\), includes second-order terms involving the Hessian \(H\):
+        \[
+        E(w + \Delta w) = E(w) + \nabla_w \cdot \Delta w + \frac{1}{2} \Delta w^T H \Delta w
+        \]
+        \item Since we don’t know \(H\), we approximate it with \(\hat{H}\) as an estimate of the Hessian.
+        \item This gives us the modified expression:
+        \[
+        E(w + \Delta w) \approx E(w) + \nabla_w \cdot \Delta w + \frac{1}{2} \Delta w^T \hat{H} \Delta w
+        \]
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Derivation of \(\hat{H}\) via Minimization}
+    \begin{itemize}
+        \item We want \(\hat{H}\) to capture the essential properties of \(H\) without needing the full matrix.
+        \item Let’s define \(\mathbf{z} = H \mathbf{v}\), where \(\mathbf{v}\) is a direction vector.
+       \item If we want \(\hat{H} \mathbf{v} = \mathbf{z}\), a least-squares solution without additional constraints would be:
+        \[
+        \hat{H} = \frac{\mathbf{z} \mathbf{v}^T}{\| \mathbf{v} \|^2}
+        \]
+        \item However, this solution is not symmetric, so it does not serve as a valid Hessian approximation.
+        \item Therefore, we add a symmetry constraint: we require that \(\hat{H}\) satisfies \(\mathbf{v}^T \hat{H} = \mathbf{z}^T\).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Adding a Symmetry Constraint to \(\hat{H}\)}
+    \begin{itemize}
+        \item To ensure \(\hat{H}\) is symmetric, we add a symmetry constraint: \(\mathbf{v}^T \hat{H} = \mathbf{z}^T\).
+        \item The new least-squares problem with this constraint leads to the solution:
+        \[
+        \hat{H} = \frac{1}{\| \mathbf{v} \|^2} \left( \mathbf{z} \mathbf{v}^T + \mathbf{v} \mathbf{z}^T - \frac{\mathbf{v} \cdot \mathbf{z}}{\| \mathbf{v} \|^2} \mathbf{v} \mathbf{v}^T \right)
+        \]
+        \item This formula ensures that \(\hat{H}\) is symmetric, satisfies \(\hat{H} \mathbf{v} = \mathbf{z}\), and approximates \(H\) in a least-squares sense.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Final Formula for \(\Delta E\) with \(\hat{H}\)}
+    \begin{itemize}
+        \item Now that we have a symmetric approximation for \(\hat{H}\), we substitute it back into our expression for \(\Delta E\):
+        \[
+        \Delta E = \Delta w_i \frac{\partial E}{\partial w_i} + \frac{\Delta w \cdot \mathbf{v}}{\| \mathbf{v} \|^2} \left( \Delta w_i - \frac{\Delta w \cdot \mathbf{v}}{2 \| \mathbf{v} \|^2} v_i \right) z_i + \text{noise}
+        \]
+        \item This allows us to estimate \(\frac{\partial E}{\partial w_i}\) and \(z_i\) for each weight \(w_i\), using only local perturbations and globally broadcast values like \(\Delta E\) and \(\Delta w \cdot \mathbf{v}\).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\textbf{Key Properties of \( \mathcal{R} \{ \} \) Technique:}
+\begin{itemize}
+    \item \textbf{Exact:} No approximations are made.
+    \item \textbf{Numerically Accurate:} Maintains precision without significant loss.
+    \item \textbf{Efficient:} Comparable computation cost to gradient calculation.
+    \item \textbf{Flexible:} Compatible with all gradient calculation methods.
+    \item \textbf{Robust:} Provides an unbiased estimate if the gradient calculation is unbiased.
+\end{itemize}
+\end{frame}
+
+\end{document}
