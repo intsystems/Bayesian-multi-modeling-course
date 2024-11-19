@@ -36,6 +36,6 @@
 * [Combining deep generative and discriminative models for Bayesian semi-supervised learning](https://www.sciencedirect.com/science/article/pii/S003132031930456X) [reporter: your name]
 
 # Graphical models
-* [Learning to Discover Sparse Graphical Models](http://proceedings.mlr.press/v70/belilovsky17a/belilovsky17a.pdf) [reporter: "your name"]
+* [Learning to Discover Sparse Graphical Models](http://proceedings.mlr.press/v70/belilovsky17a/belilovsky17a.pdf) [reporter: "Solodkin Vladimir"]
 * [GFlowNets](https://arxiv.org/pdf/2106.04399) [reporter: "Iryna Zabarianska"]
 #
