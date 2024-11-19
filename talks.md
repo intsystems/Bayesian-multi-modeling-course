@@ -37,5 +37,5 @@
 
 # Graphical models
 * [Learning to Discover Sparse Graphical Models](http://proceedings.mlr.press/v70/belilovsky17a/belilovsky17a.pdf) [reporter: "your name"]
-* [GFlowNets](https://arxiv.org/pdf/2106.04399) [reporter: "your name"]
+* [GFlowNets](https://arxiv.org/pdf/2106.04399) [reporter: "Iryna Zabarianska"]
 #
