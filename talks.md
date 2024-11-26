@@ -38,4 +38,6 @@
 # Graphical models
 * [Learning to Discover Sparse Graphical Models](http://proceedings.mlr.press/v70/belilovsky17a/belilovsky17a.pdf) [reporter: "Solodkin Vladimir"]
 * [GFlowNets](https://arxiv.org/pdf/2106.04399) [reporter: "Iryna Zabarianska"]
-#
+
+# Technical meeting 3
+* [Rethinking Parameter Counting in Deep Models: Effective Dimensionality Revisited](https://arxiv.org/pdf/2003.02139)  [reporter: your name]
