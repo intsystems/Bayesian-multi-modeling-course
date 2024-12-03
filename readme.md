@@ -28,9 +28,9 @@
 | 12.11 | [Generative and discriminative models](slides/slides_7_gendisc.pdf)  | 
 | 19.11 | [Graphical models](slides/slides_8_graphical.pdf)  | 
 | 26.11 | Technical meeting 3  | 
-| 3.12 | Probabilistic metric spaces, HMC, Posterior | 
+| 3.12 | [Project review](slides/slides_project_review.pdf) | 
 | 10.12 | Technical meeting 4 | 
-| 17.12 | Final scores  | 
+| 17.12 | Final scores, Gradient flows  | 
 
 
 
