@@ -40,4 +40,4 @@
 * [GFlowNets](https://arxiv.org/pdf/2106.04399) [reporter: "Iryna Zabarianska"]
 
 # Technical meeting 3
-* [Rethinking Parameter Counting in Deep Models: Effective Dimensionality Revisited](https://arxiv.org/pdf/2003.02139)  [reporter: your name]
+* [Rethinking Parameter Counting in Deep Models: Effective Dimensionality Revisited](https://arxiv.org/pdf/2003.02139)  [reporter: Nikita Okhotnikov]
