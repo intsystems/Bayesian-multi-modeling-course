@@ -1,5 +1,5 @@
 # Bayesian multimodeling
-[Form 12](https://docs.google.com/forms/d/e/1FAIpQLSdVl12QUW5PKZYs5mNV0mhxj-WfU8ONzAVSI-SVUno_rN4_ZA/viewform?usp=sharing)
+[Feedback form](https://docs.google.com/forms/d/e/1FAIpQLSeEPyLJsilBAUpxFnY7ZQ2ljILdHG0_LWKgJ8QSWMulFjF-_A/viewform?usp=dialog)
 
 [Projects](projects.md) and [project schedule](project_schedule.md)
 
