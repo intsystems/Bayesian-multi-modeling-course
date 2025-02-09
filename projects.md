@@ -1,4 +1,8 @@
 # Projects
+
+## Project list (spring 2025)
+
+
 ## Project activities
 Each team must assign roles for all teammates. Each activity is evaluated independently, thus number of activites per each teammate must be ~equal.
 
@@ -10,10 +14,14 @@ Each team must assign roles for all teammates. Each activity is evaluated indepe
 	* Present this plan
 	* **Evaluation criterion:** presentation at Tech. meeting 1
   
-* Basic code writing: depending on the task, this code must either:
-	* Present the idea of the proposed method, but with simplier tools
-	* Present a benchmark with comparison to the basic algorithms
+* Proof of concept:this code must either:
+	* Implement experiment with similar problem statement but with simplier tools
+ 		*Example: if you are working on feature selection, find a suitable model, dataset and perform L2-regularization
+	* The implemented code must be used as a baseline for demo
+ 	* The implemented plots and performance crtieria must be used as a baseline for demo 
 	* **Evaluation criterion:** presentation  at Tech. meeting 2
+
+
 * Algorithm implementation (1 activity per teammate)
 	*  **Evaluation criterion:** presentation at Tech. meeting 1, cross-review, presentation, tests correctly run the algorithm,  presentation at Tech. meeting 3
 * Project wrapping:
@@ -33,6 +41,7 @@ Each team must assign roles for all teammates. Each activity is evaluated indepe
 
 For the team of 2 people it means that each teammate must have 5 acitvities
 For the team of 4 people each teammate must have 3 or 4 activities
+
 
 
 ## Projects
