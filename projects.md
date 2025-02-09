@@ -48,7 +48,7 @@ Surprisingly, this class of models is underrepresented in DL community. This pro
   [Extended Kalman filter is somehow implemented in pyro](https://pyro.ai/examples/ekf.html). It would be good to make the code somehow compatible with [S4 or other current SSM SOTAs](https://github.com/state-spaces/s4).
 
 
-## Neural ensemble search
+### Neural ensemble search
 **Motivation**:  neural ensemble search is a special case neural archietcture search allowing to select not a single model but an ensembles of models.
 The project goal is to implement baseline algorithms for this problem as well as methods of uncertainty estimation.
 
@@ -61,7 +61,7 @@ The project goal is to implement baseline algorithms for this problem as well as
 
  **Project details:** The code of NES can be found [here](https://github.com/automl/nes/tree/master).  The aleatoric/epistemic unvertainy estimation must be implemented. It would be also good to make the code compatible with [https://nni.readthedocs.io/en/stable/](nni). The code itself will obviously require usage of some GPU resources (collab is ok).
 
- ## AutoML-Zero for deep learning
+ ### AutoML-Zero for deep learning
  **Motivation**:  [Original paper on automl-zero](https://arxiv.org/abs/2003.03384) involves symbolic programming for machine learning algorithms. Current extension of this idea led to multiple heterogenous papers devoted to optimization of neural architecture search, loss function optimization and optimizer optimization. The goal of the project is to consolidate all the results.
  
 **Algorithms to implement (the order is arbitary):**
@@ -80,7 +80,7 @@ The project goal is to implement baseline algorithms for this problem as well as
    
  **Project details:** the project requires a lot of computation, so some GPU could be good (working with collab might be challenging). Note that AutoBERT uses proxy functions to speedup optimization (this might be implemented in the project). For our purposes we don't need to implement some intesnive architecture search, obtaining some small model on MNIST/FashionMNIST/CIFAR will be ok (but this will require some thinkin on search space).
 
- ## Multi-task learning with task relation
+ ### Multi-task learning with task relation
 Multi-task learning is a machine learning paradigm which involves optimization model parameters for multiple diverse tasks. Vanilla multitask optimization presumes that the tasks are optimized without any hierarchy, but with some possilbe weights over tasks. The project goal is to implement different methods to assign weights or hierarchy to tasks to make the optimization mroe effective.
 
 **Algorithms to implement (from simplets to hardest):**
