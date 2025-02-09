@@ -31,17 +31,18 @@ T1-T2 [can be also found here](https://nni.readthedocs.io/en/v2.1/NAS/DARTS.html
 
 ### Kalman filter and extensions
 Kalman filter is a bery basic probabilistic state-space model, which has a lot of extensions and relation with different classes of models/metohds:
-	* GP
- 	* SSM like S4/S6
-  	* HMM
-   	* RNN
+* GP
+* SSM like S4/S6
+* HMM
+* RNN
+    
 Surprisingly, this class of models is underrepresented in DL community. This project is focused on the very simple and clear implementation of this class of models.
 
 **Algorithms to implement (from simplets to hardest):**
-	* Kalman filter, see [Bishop book](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) or any other reference
- 	* [Extended Kalman Filter](https://www.sciencedirect.com/topics/engineering/extended-kalman-filter)
-  	* [Unscented Kalman filter](https://groups.seas.harvard.edu/courses/cs281/papers/unscented.pdf)
-   	* [Variational version (feel free to find any other variational versions)](https://arxiv.org/pdf/1609.09869)
+* Kalman filter, see [Bishop book](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) or any other reference
+* [Extended Kalman Filter](https://www.sciencedirect.com/topics/engineering/extended-kalman-filter)
+* [Unscented Kalman filter](https://groups.seas.harvard.edu/courses/cs281/papers/unscented.pdf)
+* [Variational version (feel free to find any other variational versions)](https://arxiv.org/pdf/1609.09869)
 
   **Project details:** [Kalman filter implementation for pytorch can be found here.](https://github.com/raphaelreme/torch-kf?tab=readme-ov-file)
   [Extended Kalman filter is somehow implemented in pyro](https://pyro.ai/examples/ekf.html). It would be good to make the code somehow compatible with [S4 or other current SSM SOTAs](https://github.com/state-spaces/s4).
