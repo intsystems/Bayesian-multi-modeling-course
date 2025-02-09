@@ -1,6 +1,21 @@
 # Projects
 
 ## Project list (spring 2025)
+### Gradient-based hyperparameter optimization
+**Motivation**:  Hyperparameter optimization is a problem of finding suitable hyperparameters given a validation (or sometimes test) dataset.
+In contrast to classical hyperparameter optimization methods, gradient-based methods allow the researchers to perform hyperparameter optimization over a billion-dimmension search space. 
+ 
+**Algorithms to implement (from simplets to hardest):**
+* [T1-T2](http://proceedings.mlr.press/v48/luketina16.pdf) with [DARTS numerical approximation (section 2.3)](https://arxiv.org/pdf/1806.09055) 
+* [Optimizing billion hyperparameters](http://proceedings.mlr.press/v108/lorraine20a/lorraine20a.pdf)
+* [HOAG](http://proceedings.mlr.press/v48/pedregosa16.pdf)
+* [DrMAD](https://arxiv.org/pdf/1601.00917) (attention: the algorithm is described poorly, need to proofread before implementation)
+
+**Recommended stack**:
+JAX or pytorch. **As with Evidence-based operators, the main problem here is to make this usable for a broad-class of tasks (provide good API).**
+
+**Project details:** the code of T1-T2 and "Optimizing billion hyperparameters..." is already implemented on JAX by Konstantin Yakovlev.
+T1-T2 [can be also found here](https://nni.readthedocs.io/en/v2.1/NAS/DARTS.html)
 
 
 ## Project activities
