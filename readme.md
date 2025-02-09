@@ -13,6 +13,31 @@
 
 [Youtube playlist](https://www.youtube.com/playlist?list=PLk4h7dmY2eYH7TR9DDkeXRw6s1tIY2_Kb)
 
+## Plan (Spring 2025)
+| --- | --- |
+| 11.02 | Intro | 
+| 18.02 | Hyperparameter optimization: SMBO | 
+| 25.02 | Technincal meeting 1: project discussion | 
+| 4.03 | Hyperparameter optimization: gradient-based  | 
+| 11.03 | Structure selection | 
+| 18.03 | Technincal meeting 2: proof of concept discussion | 
+| 25.03 | Meta-optimization + Genetics  | 
+| 1.04 |  Knowledge transfer and distillation   | 
+| 8.04 | Multi-task learning| 
+| 15.04 | Gaussian processes, SSM  | 
+| 22.04 |  Model ensembles | 
+| 29.04 | Hierarchical models | 
+| 6.05 | Technical meeting 3: pre-final discussion  | 
+| 13.05 | Latent space projection | 
+| 20.05 | Project finalizing, Final scores | 
+
+
+
+## Topics to discuss (tentative):
+* Gradient flows
+* NTK
+* Agents
+
 ## Plan (Fall 2024)
 |Date|Topic|
 | --- | --- |
