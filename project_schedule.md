@@ -1,29 +1,27 @@
 THIS VERSION IS PRELIMINARY
 
-### 24.09
+### 18.02
 * The teams are assigned
 
-### 01.10
+### 25.02
 * Technical meeting: the projects and algorithms are discussed
 * The repositories are created
   
-### 08.10
--
-### 15.10
--
-### 22.10
--
-### 29.10
+### 18.03
 * Technical meeting 2
-* The basic code is discussed
+* Proof of concept is implemented and discussed
+  * What is the problem statement
+  * What are the experiments
+  * What will be the data  
 * The drafty version of the blogpost is discussed
+  * The scheme of the picutre   
 * The structure and drafty version of documentation is discussed
-### 5.11
--
-### 12.11
--
 
-### 26.11
+### 15.04 (???)
+  * Checkpoint
+
+
+### 6.05
 * Technical meeting 3
 * The libraries are discussed in general
 * The demos are discussed
@@ -32,11 +30,9 @@ THIS VERSION IS PRELIMINARY
 * The documentation is discussed
 * The blogpost is discussed
 
-
-### 3.12
+### 13.05
 * The cross-review is finished
 * The external review of blogposts (tentatively) is finished
-### 10.12
-* The cross-reviews and fixes are discussed
-### 17.12
-* Grades, finalizing work
+  
+### 20.05
+* Grades, finalizing work, discussion of fixes after review
