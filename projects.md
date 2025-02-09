@@ -48,7 +48,17 @@ Surprisingly, this class of models is underrepresented in DL community. This pro
   [Extended Kalman filter is somehow implemented in pyro](https://pyro.ai/examples/ekf.html). It would be good to make the code somehow compatible with [S4 or other current SSM SOTAs](https://github.com/state-spaces/s4).
 
 
+## Neural ensemble search
+**Motivation**:  neural ensemble search is a special case neural archietcture search allowing to select not a single model but an ensembles of models.
+The project goal is to implement baseline algorithms for this problem as well as methods of uncertainty estimation.
+* [Baseline algorithm with random search](https://proceedings.neurips.cc/paper_files/paper/2021/file/41a6fd31aa2e75c3c6d427db3d17ea80-Paper.pdf)
+* [Baseline algorithm with regularized evolution](https://proceedings.neurips.cc/paper_files/paper/2021/file/41a6fd31aa2e75c3c6d427db3d17ea80-Paper.pdf)
+* [MC sampling](https://proceedings.mlr.press/v180/shu22a/shu22a.pdf)
+* [SGVD sampling](https://proceedings.mlr.press/v180/shu22a/shu22a.pdf)
 
+
+ **Project details:** The code of NES can be found [here](https://github.com/automl/nes/tree/master).  The aleatoric/epistemic unvertainy estimation must be implemented. It would be also good to make the code compatible with [https://nni.readthedocs.io/en/stable/](nni).
+ 
 
 
 
