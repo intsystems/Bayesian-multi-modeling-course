@@ -51,6 +51,8 @@ Surprisingly, this class of models is underrepresented in DL community. This pro
 ## Neural ensemble search
 **Motivation**:  neural ensemble search is a special case neural archietcture search allowing to select not a single model but an ensembles of models.
 The project goal is to implement baseline algorithms for this problem as well as methods of uncertainty estimation.
+
+**Algorithms to implement (from simplets to hardest):**
 * [Baseline algorithm with random search](https://proceedings.neurips.cc/paper_files/paper/2021/file/41a6fd31aa2e75c3c6d427db3d17ea80-Paper.pdf)
 * [Baseline algorithm with regularized evolution](https://proceedings.neurips.cc/paper_files/paper/2021/file/41a6fd31aa2e75c3c6d427db3d17ea80-Paper.pdf)
 * [MC sampling](https://proceedings.mlr.press/v180/shu22a/shu22a.pdf)
@@ -58,8 +60,25 @@ The project goal is to implement baseline algorithms for this problem as well as
 
 
  **Project details:** The code of NES can be found [here](https://github.com/automl/nes/tree/master).  The aleatoric/epistemic unvertainy estimation must be implemented. It would be also good to make the code compatible with [https://nni.readthedocs.io/en/stable/](nni). The code itself will obviously require usage of some GPU resources (collab is ok).
- 
 
+ ## AutoML-Zero for deep learning
+ **Motivation**:  [Original paper on automl-zero](https://arxiv.org/abs/2003.03384) involves symbolic programming for machine learning algorithms. Current extension of this idea led to multiple heterogenous papers devoted to optimization of neural architecture search, loss function optimization and optimizer optimization. The goal of the project is to consolidate all the results.
+**Algorithms to implement (the order is arbitary):**
+* [Loss function optimization](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_AutoLoss-Zero_Searching_Loss_Functions_From_Scratch_for_Generic_Tasks_CVPR_2022_paper.pdf)
+* [Model optimization](https://arxiv.org/abs/2107.07445)
+* [Symbolic Discovery of Optimization Algorithms](https://arxiv.org/abs/2302.06675)
+* [Pareto-front for Automl](https://dl.acm.org/doi/abs/10.1145/3583131.3590391?casa_token=EY_Nd4zuuaMAAAAA:07SVrIFmkRqgTq6HTREnzHoezey5qDhsadOZsZ0o-lwQ6CY9KTWu13meBM-aVOYILOAe5WVDGZl8BA)
+
+**Stack:** (optional, but recommended) 
+* [pyglove](https://github.com/google/pyglove) allows to perform symbolic programming over python programs. See machine learning related examples and [paper](https://arxiv.org/abs/2302.01918)
+* Please don't implement genetic algorithm from scratch, try to integrate with one of those:
+ * https://pygad.readthedocs.io/en/latest/
+ * https://github.com/DEAP/deap
+ * https://leap-gmu.readthedocs.io/en/latest/
+     
+   
+ **Project details:** the project requires a lot of computation, so some GPU could be good (working with collab might be challenging). Note that AutoBERT uses proxy functions to speedup optimization (this might be implemented in the project). For our purposes we don't need to implement some intesnive architecture search, obtaining some small model on MNIST/FashionMNIST/CIFAR will be ok (but this will require some thinkin on search space).
+ 
 
 ## Project activities
 Each team must assign roles for all teammates. Each activity is evaluated independently, thus number of activites per each teammate must be ~equal.
