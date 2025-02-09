@@ -17,6 +17,14 @@ JAX or pytorch. **As with Evidence-based operators, the main problem here is to 
 **Project details:** the code of T1-T2 and "Optimizing billion hyperparameters..." is already implemented on JAX by Konstantin Yakovlev.
 T1-T2 [can be also found here](https://nni.readthedocs.io/en/v2.1/NAS/DARTS.html)
 
+### Data-free distillation
+**Motivation**:  Knowledge distillation is an approach to train/improve target model performace (student) using information from already trained large model (teacher). Classical approaches to this problem perofrm distillation using logits, responses or hidden state from teacher obtained from data. However in some cases we cannot use the original data, and thus this method become unapplicable. The idea of data-free distillation is to obtain some elements of data from the teacher and then perform distillation.
+
+**Algorithms to implement (from simplets to hardest):**
+* [Original paper, statistical features](https://arxiv.org/pdf/1710.07535)
+* [Original paper, spectral features](https://arxiv.org/pdf/1710.07535)
+* [HOAG](http://proceedings.mlr.press/v48/pedregosa16.pdf)
+* [DrMAD](https://arxiv.org/pdf/1601.00917) (attention: the algorithm is described poorly, need to proofread before implementation)
 
 ## Project activities
 Each team must assign roles for all teammates. Each activity is evaluated independently, thus number of activites per each teammate must be ~equal.
