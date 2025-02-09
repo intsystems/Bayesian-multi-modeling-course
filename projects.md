@@ -23,8 +23,10 @@ T1-T2 [can be also found here](https://nni.readthedocs.io/en/v2.1/NAS/DARTS.html
 **Algorithms to implement (from simplets to hardest):**
 * [Original paper, statistical features](https://arxiv.org/pdf/1710.07535)
 * [Original paper, spectral features](https://arxiv.org/pdf/1710.07535)
-* [HOAG](http://proceedings.mlr.press/v48/pedregosa16.pdf)
-* [DrMAD](https://arxiv.org/pdf/1601.00917) (attention: the algorithm is described poorly, need to proofread before implementation)
+* [Data-free adversarial distillation](https://arxiv.org/pdf/1912.11006)
+* [Deep inversion](https://openaccess.thecvf.com/content_CVPR_2020/papers/Yin_Dreaming_to_Distill_Data-Free_Knowledge_Transfer_via_DeepInversion_CVPR_2020_paper.pdf)
+
+**Project details:** some mechanism of analyzing hidden states must be implemented (in pytorch this can be implemented using hooks or via computational graph inspection, for example).
 
 ## Project activities
 Each team must assign roles for all teammates. Each activity is evaluated independently, thus number of activites per each teammate must be ~equal.
