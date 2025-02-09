@@ -63,6 +63,7 @@ The project goal is to implement baseline algorithms for this problem as well as
 
  ## AutoML-Zero for deep learning
  **Motivation**:  [Original paper on automl-zero](https://arxiv.org/abs/2003.03384) involves symbolic programming for machine learning algorithms. Current extension of this idea led to multiple heterogenous papers devoted to optimization of neural architecture search, loss function optimization and optimizer optimization. The goal of the project is to consolidate all the results.
+ 
 **Algorithms to implement (the order is arbitary):**
 * [Loss function optimization](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_AutoLoss-Zero_Searching_Loss_Functions_From_Scratch_for_Generic_Tasks_CVPR_2022_paper.pdf)
 * [Model optimization](https://arxiv.org/abs/2107.07445)
@@ -78,7 +79,17 @@ The project goal is to implement baseline algorithms for this problem as well as
      
    
  **Project details:** the project requires a lot of computation, so some GPU could be good (working with collab might be challenging). Note that AutoBERT uses proxy functions to speedup optimization (this might be implemented in the project). For our purposes we don't need to implement some intesnive architecture search, obtaining some small model on MNIST/FashionMNIST/CIFAR will be ok (but this will require some thinkin on search space).
- 
+
+ ## Multi-task learning with task relation
+Multi-task learning is a machine learning paradigm which involves optimization model parameters for multiple diverse tasks. Vanilla multitask optimization presumes that the tasks are optimized without any hierarchy, but with some possilbe weights over tasks. The project goal is to implement different methods to assign weights or hierarchy to tasks to make the optimization mroe effective.
+
+**Algorithms to implement (from simplets to hardest):**
+* [Task clustering](https://jmlr.csail.mit.edu/papers/volume4/bakker03a/bakker03a.pdf)
+* [Bayesian Multitask Learning with Latent Hierarchies](https://arxiv.org/pdf/1408.2032)
+* [Sparse Bayesian Multi-Task Learning](https://proceedings.neurips.cc/paper_files/paper/2011/file/4fac9ba115140ac4f1c22da82aa0bc7f-Paper.pdf)
+* [Variational method](https://proceedings.neurips.cc/paper_files/paper/2021/file/afd4836712c5e77550897e25711e1d96-Paper.pdf)
+
+**Attention:** some methods like "sparse Bayesian MT learning" are poorly compatible with DL models. Some exnstion must be proposed.
 
 ## Project activities
 Each team must assign roles for all teammates. Each activity is evaluated independently, thus number of activites per each teammate must be ~equal.
