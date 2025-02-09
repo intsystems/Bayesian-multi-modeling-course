@@ -17,6 +17,7 @@ JAX or pytorch. **As with Evidence-based operators, the main problem here is to 
 **Project details:** the code of T1-T2 and "Optimizing billion hyperparameters..." is already implemented on JAX by Konstantin Yakovlev.
 T1-T2 [can be also found here](https://nni.readthedocs.io/en/v2.1/NAS/DARTS.html)
 
+
 ### Data-free distillation
 **Motivation**:  Knowledge distillation is an approach to train/improve target model performace (student) using information from already trained large model (teacher). Classical approaches to this problem perofrm distillation using logits, responses or hidden state from teacher obtained from data. However in some cases we cannot use the original data, and thus this method become unapplicable. The idea of data-free distillation is to obtain some elements of data from the teacher and then perform distillation.
 
@@ -27,6 +28,28 @@ T1-T2 [can be also found here](https://nni.readthedocs.io/en/v2.1/NAS/DARTS.html
 * [Deep inversion](https://openaccess.thecvf.com/content_CVPR_2020/papers/Yin_Dreaming_to_Distill_Data-Free_Knowledge_Transfer_via_DeepInversion_CVPR_2020_paper.pdf)
 
 **Project details:** some mechanism of analyzing hidden states must be implemented (in pytorch this can be implemented using hooks or via computational graph inspection, for example).
+
+### Kalman filter and extensions
+Kalman filter is a bery basic probabilistic state-space model, which has a lot of extensions and relation with different classes of models/metohds:
+	* GP
+ 	* SSM like S4/S6
+  	* HMM
+   	* RNN
+Surprisingly, this class of models is underrepresented in DL community. This project is focused on the very simple and clear implementation of this class of models.
+
+**Algorithms to implement (from simplets to hardest):**
+	* Kalman filter, see [Bishop book](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) or any other reference
+ 	* [Extended Kalman Filter](https://www.sciencedirect.com/topics/engineering/extended-kalman-filter)
+  	* [Unscented Kalman filter](https://groups.seas.harvard.edu/courses/cs281/papers/unscented.pdf)
+   	* [Variational version (feel free to find any other variational versions)](https://arxiv.org/pdf/1609.09869)
+
+  **Project details:** [Kalman filter implementation for pytorch can be found here.](https://github.com/raphaelreme/torch-kf?tab=readme-ov-file)
+  [Extended Kalman filter is somehow implemented in pyro](https://pyro.ai/examples/ekf.html). It would be good to make the code somehow compatible with [S4 or other current SSM SOTAs](https://github.com/state-spaces/s4).
+
+
+
+
+
 
 ## Project activities
 Each team must assign roles for all teammates. Each activity is evaluated independently, thus number of activites per each teammate must be ~equal.
