@@ -9,7 +9,7 @@ In contrast to classical hyperparameter optimization methods, gradient-based met
 * [T1-T2](http://proceedings.mlr.press/v48/luketina16.pdf) with [DARTS numerical approximation (section 2.3)](https://arxiv.org/pdf/1806.09055) 
 * [Optimizing billion hyperparameters](http://proceedings.mlr.press/v108/lorraine20a/lorraine20a.pdf)
 * [HOAG](http://proceedings.mlr.press/v48/pedregosa16.pdf)
-* [DrMAD](https://arxiv.org/pdf/1601.00917) (attention: the algorithm is described poorly, need to proofread before implementation. Piecewise-linearization is also required.)
+* [DrMAD](https://arxiv.org/pdf/1601.00917) (attention: the algorithm is described poorly, need to proofread before implementation. Instead of trajectory linearization, piecewise-linearization is required to be implemented.)
 
 **Recommended stack**:
 JAX or pytorch. **As with Evidence-based operators, the main problem here is to make this usable for a broad-class of tasks (provide good API).**
