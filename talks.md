@@ -47,4 +47,4 @@
 # Spring 2025, project discussion
 * [Neural Tangent Kernel: Convergence and Generalization in Neural Networks](https://arxiv.org/abs/1806.07572) [reporter: your name]
 * [On the Inductive Bias of Neural Tangent Kernels](https://proceedings.neurips.cc/paper_files/paper/2019/file/c4ef9c39b300931b69a36fb3dbb8d60e-Paper.pdf) [reporter: your name]
-* [
+
