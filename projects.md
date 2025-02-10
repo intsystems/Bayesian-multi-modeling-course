@@ -59,7 +59,7 @@ The project goal is to implement baseline algorithms for this problem as well as
 * [SGVD sampling](https://proceedings.mlr.press/v180/shu22a/shu22a.pdf)
 
 
- **Project details:** The code of NES can be found [here](https://github.com/automl/nes/tree/master).  The aleatoric/epistemic unvertainy estimation must be implemented. It would be also good to make the code compatible with [https://nni.readthedocs.io/en/stable/](nni). The code itself will obviously require usage of some GPU resources (collab is ok).
+ **Project details:** The code of NES can be found [here](https://github.com/automl/nes/tree/master).  The aleatoric/epistemic uncertainty estimation must be implemented. It would be also good to make the code compatible with [https://nni.readthedocs.io/en/stable/](nni). The code itself will obviously require usage of some GPU resources (collab is ok).
 
  ### AutoML-Zero for deep learning
  **Motivation**:  [Original paper on automl-zero](https://arxiv.org/abs/2003.03384) involves symbolic programming for machine learning algorithms. Current extension of this idea led to multiple heterogenous papers devoted to optimization of neural architecture search, loss function optimization and optimizer optimization. The goal of the project is to consolidate all the results.
