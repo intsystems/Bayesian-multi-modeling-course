@@ -16,7 +16,7 @@
 ## Plan (Spring 2025)
 |Date|Topic|
 | --- | --- |
-| 11.02 | Intro |
+| 11.02 | [Intro](slides/slides_9_intro.pdf) |
 | 18.02 | Hyperparameter optimization: SMBO |
 | 25.02 | Technincal meeting 1: project discussion |
 | 4.03 | Hyperparameter optimization: gradient-based  |
