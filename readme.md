@@ -11,7 +11,9 @@
 
 [TG Link](https://t.me/+XwE8i4hw5DY2MTUy)
 
-[Youtube playlist](https://www.youtube.com/playlist?list=PLk4h7dmY2eYH7TR9DDkeXRw6s1tIY2_Kb)
+[Yoututbe playlist, spring](https://www.youtube.com/playlist?list=PLk4h7dmY2eYHreS3GpniTNRQfCFC9V3Es)
+
+[Youtube playlist, fall](https://www.youtube.com/playlist?list=PLk4h7dmY2eYH7TR9DDkeXRw6s1tIY2_Kb)
 
 ## Plan (Spring 2025)
 |Date|Topic|
