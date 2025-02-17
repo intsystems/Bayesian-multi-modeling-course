@@ -48,3 +48,6 @@
 * [Neural Tangent Kernel: Convergence and Generalization in Neural Networks](https://arxiv.org/abs/1806.07572) [reporter: your name]
 * [On the Inductive Bias of Neural Tangent Kernels](https://proceedings.neurips.cc/paper_files/paper/2019/file/c4ef9c39b300931b69a36fb3dbb8d60e-Paper.pdf) [reporter: "Nikitina Maria"]
 
+# Hyperparameter optimization
+* [Bayesian optimization in a billion dimensions via random embeddings](https://www.jair.org/index.php/jair/article/download/10983/26133) [reporter: your name]
+* [Multiobjective tree-structured Parzen estimator](https://www.jair.org/index.php/jair/article/download/13188/26784/) [reporter: your name]
