@@ -51,3 +51,7 @@
 # Hyperparameter optimization
 * [Bayesian optimization in a billion dimensions via random embeddings](https://www.jair.org/index.php/jair/article/download/10983/26133) [reporter: Nikita Kiselev]
 * [Multiobjective tree-structured Parzen estimator](https://www.jair.org/index.php/jair/article/download/13188/26784/) [reporter: your name]
+
+# Technical meeting 1
+* TODO
+* [Mirror descent method for stochastic multi-objective optimization](https://arxiv.org/html/2410.06632v1) [reporter: Ilgam?]
