@@ -19,7 +19,7 @@
 |Date|Topic|
 | --- | --- |
 | 11.02 | [Intro](slides/slides_9_intro.pdf) |
-| 18.02 | Hyperparameter optimization: SMBO |
+| 18.02 | [Hyperparameter optimization: SMBO](slides/slides_10_smbo.pdf) |
 | 25.02 | Technincal meeting 1: project discussion |
 | 4.03 | Hyperparameter optimization: gradient-based  |
 | 11.03 | Structure selection |
